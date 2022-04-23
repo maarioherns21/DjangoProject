@@ -1,0 +1,30 @@
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color:  #ededed;
+  }
+  
+  main {
+    flex: 1 0 auto;
+  }
+  
+  footer.page-footer {
+    padding-top: 0;
+    text-align: right;
+  }
+
+  #bgc{
+      background-color: rgb(55, 77, 97);
+  }
+  .img1{
+      background-image: url("https://mcdn.wallpapersafari.com/medium/74/48/huNA1w.jpg") ;
+  }
+
+  .timeline_content {
+      position: relative;
+      padding: 0 15px 0 50px ;
+      max-width: 450px;
+  }

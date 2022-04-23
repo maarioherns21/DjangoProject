@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="justify center">
+  <h1>OUR HISTORY</h1>
+  {% for story in stories %}
+  <div>
+    <div class="card-content justify center time_line">
+      <span class="card-title"><h1>{{ story.year }}</h1></span>
+      <h5>{{ story.month }}</h5>
+      <p>{{ story.description }}</p>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock %}
