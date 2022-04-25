@@ -4,18 +4,14 @@
 {% block content %}
 <h1>Car List</h1>
 {% for car in cars %}
+<a href="{% url 'detail' car.id %}">
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ car.model }}</span>
-      <p>Make: {{ car.make }}</p>
-      <p>Description: {{ car.description }}</p>
-      {% if car.year > 0 %}
-        <p>Year: {{ car.year }}</p>
-      {% else %}
-        <p>Year: n/a</p>
-      {% endif %}
+      <p>{{ car.make }}</p>
     </div>
   </div>
+</a>
 {% endfor %}
 {% endblock %}
 
