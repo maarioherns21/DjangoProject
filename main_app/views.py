@@ -1,7 +1,8 @@
 
 from dataclasses import fields
 from pyexpat import model
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .forms import TunningForm
 
 from .models import Car
 
@@ -43,4 +44,17 @@ def cars_index(request):
 # path 'cars/<int:cat_id>/' < this is where car_id comes from
 def cars_details(request, car_id):
     car = Car.objects.get(id=car_id)
-    return render(request, 'cars/detail.html', {'car': car})
+
+    tunning_form = TunningForm()
+    return render(request, 'cars/detail.html', {'car': car, 'tunning_form': tunning_form})
+
+
+def add_tunning(request, car_id):
+    form = TunningForm(request.POST)
+
+    if form.is_valid():
+
+        new_tunning = form.save(commit=False)
+        new_tunning.car_id = car_id
+        new_tunning.save()
+    return redirect('detail', car_id=car_id)
