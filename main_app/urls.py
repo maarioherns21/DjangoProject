@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.urls import path
 from . import views
 
@@ -11,4 +10,10 @@ urlpatterns = [
     path('cars/<int:pk>/update/', views.CarUpdate.as_view(), name='cars_update'),
     path('cars/<int:pk>/delete/', views.CarDelete.as_view(), name='cars_delete'),
     path('cars/<int:car_id>/add_tunning/', views.add_tunning, name='add_tunning'),
+    path('cars/<int:car_id>/assoc_upgrade/<int:upgrade_id>/', views.assoc_upgrade, name='assoc_upgrade'),
+    path('upgrades/', views.UpgradeList.as_view(), name='upgrades_index'),
+    path('upgrades/<int:pk>/', views.UpgradeDetail.as_view(), name='upgrades_detail'),
+    path('upgrades/create/', views.UpgradeCreate.as_view(), name='upgrades_create'),
+    path('upgrades/<int:pk>/update/', views.UpgradeUpdate.as_view(), name='upgrades_update'),
+    path('upgrades/<int:pk>/delete/', views.UpgradeDelete.as_view(), name='upgrades_delete'),
 ]
